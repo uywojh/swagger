@@ -1,0 +1,1849 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "雪亮项目相关接口",
+		"version": "1.0",
+		"title": "雪亮项目相关接口",
+		"termsOfService": "664507439@qq.com",
+		"contact": {
+			"name": "wuwei"
+		},
+		"license": {
+			"name": "杭州天阙科技有限公司",
+			"url": "http://www.hangzhoutq.com/"
+		}
+	},
+	"host": "192.168.100.100:8082",
+	"basePath": "/",
+	"tags": [{
+		"name": "精神病api",
+		"description": "精神病api"
+	}, {
+		"name": "云图api",
+		"description": "云图api"
+	}],
+	"paths": {
+		"/api/cloud/cameraList": {
+			"post": {
+				"tags": ["云图api"],
+				"summary": "摄像头点位列表",
+				"description": "摄像头点位列表",
+				"operationId": "cameraListUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "page",
+					"in": "query",
+					"description": "页数",
+					"required": true,
+					"type": "ref"
+				}, {
+					"name": "rows",
+					"in": "query",
+					"description": "每页条数",
+					"required": true,
+					"type": "ref"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				}
+			}
+		},
+		"/api/cloud/cameraStatistics": {
+			"post": {
+				"tags": ["云图api"],
+				"summary": "视频资源统计",
+				"description": "视频资源统计",
+				"operationId": "cameraStatisticsUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				}
+			}
+		},
+		"/api/cloud/countByDateAndType": {
+			"post": {
+				"tags": ["云图api"],
+				"summary": "重点人员预警统计(日周月)",
+				"operationId": "countByDateAndTypeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "orgId",
+					"in": "query",
+					"description": "组织id(可不填,不填默认当前登陆用户组织id)",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "请求失败"
+					}
+				}
+			}
+		},
+		"/api/cloud/countByVistorAndType": {
+			"post": {
+				"tags": ["云图api"],
+				"summary": "重点人员走访服务",
+				"operationId": "countByVistorAndTypeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "orgId",
+					"in": "query",
+					"description": "组织id(可不填,不填默认当前登陆用户组织id)",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "请求失败"
+					}
+				}
+			}
+		},
+		"/api/cloud/countByYearAndType": {
+			"post": {
+				"tags": ["云图api"],
+				"summary": "最近一年重点人员预警走势",
+				"operationId": "countByYearAndTypeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "orgId",
+					"in": "query",
+					"description": "组织id(可不填,不填默认当前登陆用户组织id)",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "请求失败"
+					}
+				}
+			}
+		},
+		"/api/cloud/getWarningEventById": {
+			"post": {
+				"tags": ["云图api"],
+				"summary": "根据ID获取预警事件详情",
+				"description": "根据ID获取预警事件详情",
+				"operationId": "getWarningEventByIdUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "id",
+					"in": "query",
+					"description": "预警事件ID",
+					"required": true,
+					"type": "integer",
+					"format": "int64"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				}
+			}
+		},
+		"/api/cloud/gridCount": {
+			"post": {
+				"tags": ["云图api"],
+				"summary": "全科网格统计接口",
+				"operationId": "gridCountUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "返回对象",
+					"description": "json格式",
+					"required": false,
+					"schema": {
+						"$ref": "#/definitions/PsyChosisOrgCountVo"
+					}
+				}, {
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "orgId",
+					"in": "query",
+					"description": "组织id(可不填,不填默认当前登陆用户组织id)",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "请求失败"
+					}
+				}
+			}
+		},
+		"/api/cloud/gridUserList": {
+			"post": {
+				"tags": ["云图api"],
+				"summary": "网格员点位列表",
+				"description": "网格员点位列表",
+				"operationId": "gridUserListUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "page",
+					"in": "query",
+					"description": "页数",
+					"required": true,
+					"type": "ref"
+				}, {
+					"name": "rows",
+					"in": "query",
+					"description": "每页条数",
+					"required": true,
+					"type": "ref"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				}
+			}
+		},
+		"/api/cloud/keyPersonClassifyStatistics": {
+			"post": {
+				"tags": ["云图api"],
+				"summary": "分类重点人员统计",
+				"description": "重点人员分类统计",
+				"operationId": "keyPersonClassifyStatisticsUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				}
+			}
+		},
+		"/api/cloud/personCount": {
+			"post": {
+				"tags": ["云图api"],
+				"summary": "户籍,流动人口数统计接口(对接第三方接口)",
+				"operationId": "personCountUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "返回对象",
+					"description": "json格式",
+					"required": false,
+					"schema": {
+						"$ref": "#/definitions/PsyChosisOrgCountVo"
+					}
+				}, {
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "orgId",
+					"in": "query",
+					"description": "组织id(可不填,不填默认当前登陆用户组织id)",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "请求失败"
+					}
+				}
+			}
+		},
+		"/api/cloud/personList": {
+			"post": {
+				"tags": ["云图api"],
+				"summary": "布控人员列表",
+				"description": "布控人员列表",
+				"operationId": "personListUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "page",
+					"in": "query",
+					"description": "页数",
+					"required": true,
+					"type": "ref"
+				}, {
+					"name": "rows",
+					"in": "query",
+					"description": "每页条数",
+					"required": true,
+					"type": "ref"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				}
+			}
+		},
+		"/api/cloud/placeCount": {
+			"post": {
+				"tags": ["云图api"],
+				"summary": "重点场所统计接口",
+				"operationId": "placeCountUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "返回对象",
+					"description": "json格式",
+					"required": false,
+					"schema": {
+						"$ref": "#/definitions/PsyChosisOrgCountVo"
+					}
+				}, {
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "orgId",
+					"in": "query",
+					"description": "组织id(可不填,不填默认当前登陆用户组织id)",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "请求失败"
+					}
+				}
+			}
+		},
+		"/api/cloud/underKeyPersonStatistics": {
+			"post": {
+				"tags": ["云图api"],
+				"summary": "各区重点人员统计",
+				"description": "下辖重点人员统计",
+				"operationId": "underKeyPersonStatisticsUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				}
+			}
+		},
+		"/api/cloud/underWarningEventByType": {
+			"post": {
+				"tags": ["云图api"],
+				"summary": "各类预警列表",
+				"description": "各类预警列表",
+				"operationId": "underWarningEventByTypeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				}
+			}
+		},
+		"/api/cloud/underWarningEventStatistics": {
+			"post": {
+				"tags": ["云图api"],
+				"summary": "下辖预警事件统计",
+				"description": "下辖预警事件统计",
+				"operationId": "underWarningEventStatisticsUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				}
+			}
+		},
+		"/api/cloud/vehicleList": {
+			"post": {
+				"tags": ["云图api"],
+				"summary": "布控车辆列表",
+				"description": "布控车辆列表",
+				"operationId": "vehicleListUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "page",
+					"in": "query",
+					"description": "页数",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				}, {
+					"name": "rows",
+					"in": "query",
+					"description": "每页条数",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				}
+			}
+		},
+		"/api/cloud/warningEventLevelStatistics": {
+			"post": {
+				"tags": ["云图api"],
+				"summary": "预警事件等级统计",
+				"description": "预警事件等级统计",
+				"operationId": "warningEventLevelStatisticsUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				}
+			}
+		},
+		"/api/cloud/warningEventList": {
+			"post": {
+				"tags": ["云图api"],
+				"summary": "当日预警事件列表",
+				"description": "当日预警事件列表",
+				"operationId": "warningEventListUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				}
+			}
+		},
+		"/api/cloud/warningEventStatistics": {
+			"post": {
+				"tags": ["云图api"],
+				"summary": "预警事件统计",
+				"description": "预警事件统计",
+				"operationId": "warningEventStatisticsUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				}
+			}
+		},
+		"/api/psychosis/psychosis/basicInfo": {
+			"post": {
+				"tags": ["精神病api"],
+				"summary": "精神病基础信息",
+				"operationId": "basicInfoUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "返回对象",
+					"description": "json格式",
+					"required": false,
+					"schema": {
+						"$ref": "#/definitions/BasicInfoDO"
+					}
+				}, {
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "userId",
+					"in": "query",
+					"description": "查询精神病id",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				}, {
+					"name": "psyIdCard",
+					"in": "query",
+					"description": "查询精神病身份证id",
+					"required": false,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "请求失败"
+					}
+				}
+			}
+		},
+		"/api/psychosis/psychosis/countByOrg": {
+			"post": {
+				"tags": ["精神病api"],
+				"summary": "精神病组织统计数据",
+				"operationId": "countByOrgUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "orgId",
+					"in": "query",
+					"description": "查询组织id",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "请求失败"
+					}
+				}
+			}
+		},
+		"/api/psychosis/psychosis/countPsyIndex": {
+			"post": {
+				"tags": ["精神病api"],
+				"summary": "精神病首页统计数据",
+				"operationId": "countPsyIndexUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "返回对象",
+					"description": "json格式",
+					"required": false,
+					"schema": {
+						"$ref": "#/definitions/PsyChosisCountVo"
+					}
+				}, {
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "orgId",
+					"in": "query",
+					"description": "组织(可不传,不传默认为当前登陆用户组织)",
+					"required": false,
+					"type": "integer",
+					"format": "int32"
+				}, {
+					"name": "queryType",
+					"in": "query",
+					"description": "查询类型(预警类型 2 处置及抓拍情况 3 监管数据 4 处理效能  可不填,不填默认查询全部)",
+					"required": false,
+					"type": "integer",
+					"format": "int32"
+				}, {
+					"name": "month",
+					"in": "query",
+					"description": "查询年月(可不传,不传默认为当前年月)",
+					"required": false,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "请求失败"
+					}
+				}
+			}
+		},
+		"/api/psychosis/psychosis/diagnoseInfo": {
+			"post": {
+				"tags": ["精神病api"],
+				"summary": "精神诊断信息",
+				"operationId": "diagnoseInfoUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "返回对象",
+					"description": "json格式",
+					"required": false,
+					"schema": {
+						"$ref": "#/definitions/DiagnoseInfoDO"
+					}
+				}, {
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "userId",
+					"in": "query",
+					"description": "查询精神病id",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				}, {
+					"name": "psyIdCard",
+					"in": "query",
+					"description": "查询精神病身份证id",
+					"required": false,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "请求失败"
+					}
+				}
+			}
+		},
+		"/api/psychosis/psychosis/page": {
+			"post": {
+				"tags": ["精神病api"],
+				"summary": "精神病分页数据",
+				"operationId": "pageUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "返回对象",
+					"description": "json格式",
+					"required": false,
+					"schema": {
+						"$ref": "#/definitions/PsyChosisBasicVo"
+					}
+				}, {
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "orgId",
+					"in": "query",
+					"description": "组织机构ID",
+					"required": true,
+					"type": "integer",
+					"format": "int64"
+				}, {
+					"name": "searchValue",
+					"in": "query",
+					"description": "搜索值",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "page",
+					"in": "query",
+					"description": "第几页",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				}, {
+					"name": "rows",
+					"in": "query",
+					"description": "每页条数",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "请求失败"
+					}
+				}
+			}
+		},
+		"/api/psychosis/psychosis/psyAreaRange": {
+			"post": {
+				"tags": ["精神病api"],
+				"summary": "患者地域热力图",
+				"operationId": "psyAreaRangeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "返回对象",
+					"description": "json格式",
+					"required": false,
+					"schema": {
+						"$ref": "#/definitions/PsyChosisOrgCountVo"
+					}
+				}, {
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "orgId",
+					"in": "query",
+					"description": "组织id(可不填,不填默认当前登陆用户组织id)",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "请求失败"
+					}
+				}
+			}
+		},
+		"/api/psychosis/psychosis/psyTrace": {
+			"post": {
+				"tags": ["精神病api"],
+				"summary": "患者轨迹",
+				"operationId": "psyTraceUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "id",
+					"in": "query",
+					"description": "查询精神病主键id",
+					"required": true,
+					"type": "integer",
+					"format": "int64"
+				}, {
+					"name": "start",
+					"in": "query",
+					"description": "开始时间(时间戳，默认为结束时间前1天)",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				}, {
+					"name": "end",
+					"in": "query",
+					"description": "结束时间(时间戳，默认为当前时间)",
+					"required": false,
+					"type": "integer",
+					"format": "int64"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "请求失败"
+					}
+				}
+			}
+		},
+		"/api/psychosis/psychosis/relationship": {
+			"post": {
+				"tags": ["精神病api"],
+				"summary": "人员关系画像",
+				"operationId": "relationshipUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "id",
+					"in": "query",
+					"description": "查询精神病主键id",
+					"required": true,
+					"type": "integer",
+					"format": "int64"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "请求失败"
+					}
+				}
+			}
+		},
+		"/api/psychosis/psychosis/troubleList": {
+			"post": {
+				"tags": ["精神病api"],
+				"summary": "肇事肇祸分页信息",
+				"operationId": "troubleListUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "返回对象",
+					"description": "json格式",
+					"required": false,
+					"schema": {
+						"$ref": "#/definitions/TroubleDO"
+					}
+				}, {
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "userId",
+					"in": "query",
+					"description": "患者id",
+					"required": true,
+					"type": "integer",
+					"format": "int64"
+				}, {
+					"name": "searchValue",
+					"in": "query",
+					"description": "搜索值",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "page",
+					"in": "query",
+					"description": "第几页",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				}, {
+					"name": "rows",
+					"in": "query",
+					"description": "每页条数",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				}, {
+					"name": "sort",
+					"in": "query",
+					"description": "排序字段",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "order",
+					"in": "query",
+					"description": "排序方式",
+					"required": false,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "请求失败"
+					}
+				}
+			}
+		},
+		"/api/psychosis/psychosis/vistorList": {
+			"post": {
+				"tags": ["精神病api"],
+				"summary": "日常走访信息",
+				"operationId": "vistorListUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "返回对象",
+					"description": "json格式",
+					"required": false,
+					"schema": {
+						"$ref": "#/definitions/VistorDO"
+					}
+				}, {
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "userId",
+					"in": "query",
+					"description": "患者id",
+					"required": true,
+					"type": "integer",
+					"format": "int64"
+				}, {
+					"name": "searchValue",
+					"in": "query",
+					"description": "搜索值",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "page",
+					"in": "query",
+					"description": "第几页",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				}, {
+					"name": "rows",
+					"in": "query",
+					"description": "每页条数",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				}, {
+					"name": "sort",
+					"in": "query",
+					"description": "排序字段",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "order",
+					"in": "query",
+					"description": "排序方式",
+					"required": false,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "请求失败"
+					}
+				}
+			}
+		},
+		"/api/psychosis/psychosis/watchList": {
+			"post": {
+				"tags": ["精神病api"],
+				"summary": "监管人分页信息",
+				"operationId": "watchListUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "返回对象",
+					"description": "json格式",
+					"required": false,
+					"schema": {
+						"$ref": "#/definitions/WatcherDO"
+					}
+				}, {
+					"name": "sid",
+					"in": "query",
+					"description": "登录sid",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "userId",
+					"in": "query",
+					"description": "患者id",
+					"required": true,
+					"type": "integer",
+					"format": "int64"
+				}, {
+					"name": "searchValue",
+					"in": "query",
+					"description": "搜索值",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "page",
+					"in": "query",
+					"description": "第几页",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				}, {
+					"name": "rows",
+					"in": "query",
+					"description": "每页条数",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				}, {
+					"name": "sort",
+					"in": "query",
+					"description": "排序字段",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "order",
+					"in": "query",
+					"description": "排序方式",
+					"required": false,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "请求失败"
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"PsyChosisOrgCountVo": {
+			"properties": {
+				"orgId": {
+					"type": "integer",
+					"format": "int64",
+					"description": "组织id"
+				},
+				"totalCount": {
+					"type": "integer",
+					"format": "int32",
+					"description": "组织患者总数"
+				}
+			}
+		},
+		"VistorDO": {
+			"properties": {
+				"createTime": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"createUser": {
+					"type": "string"
+				},
+				"id": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"orgCode": {
+					"type": "string"
+				},
+				"orgId": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"status": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"updateTime": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"updateUser": {
+					"type": "string"
+				},
+				"userId": {
+					"type": "integer",
+					"format": "int64",
+					"description": "患者id"
+				},
+				"userType": {
+					"type": "integer",
+					"format": "int32",
+					"description": "患者类型"
+				},
+				"vistorContent": {
+					"type": "string",
+					"description": "走访内容"
+				},
+				"vistorFrom": {
+					"type": "string",
+					"description": "走访来源"
+				},
+				"vistorTime": {
+					"type": "string",
+					"description": "反馈时间"
+				}
+			}
+		},
+		"DiagnoseInfoDO": {
+			"properties": {
+				"createTime": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"createUser": {
+					"type": "string"
+				},
+				"diagnoseBody": {
+					"type": "string",
+					"description": "躯体情况"
+				},
+				"diagnoseFirst": {
+					"type": "string",
+					"description": "初次发病日期"
+				},
+				"diagnoseHelp": {
+					"type": "string",
+					"description": "帮扶计划"
+				},
+				"diagnoseHospitalName": {
+					"type": "string",
+					"description": "治疗医院名称"
+				},
+				"diagnoseIsTrouble": {
+					"type": "integer",
+					"format": "int32",
+					"description": "有无肇事肇祸史0无1有"
+				},
+				"diagnoseLevel": {
+					"type": "string",
+					"description": "危险评估等级"
+				},
+				"diagnoseManager": {
+					"type": "string",
+					"description": "参与管理人员"
+				},
+				"diagnoseMeasure": {
+					"type": "string",
+					"description": "康复措施"
+				},
+				"diagnoseReact": {
+					"type": "string",
+					"description": "药物不良反应"
+				},
+				"diagnoseStatus": {
+					"type": "string",
+					"description": "服药情况"
+				},
+				"diagnoseSymptoms": {
+					"type": "string",
+					"description": "精神症状"
+				},
+				"diagnoseTreatOrg": {
+					"type": "string",
+					"description": "康复训练机构"
+				},
+				"diagnoseTreatReason": {
+					"type": "string",
+					"description": "住院治疗原因"
+				},
+				"diagnoseTreatStatus": {
+					"type": "string",
+					"description": "治疗情况"
+				},
+				"diagnoseTroubleCount": {
+					"type": "integer",
+					"format": "int32",
+					"description": "肇事肇祸次数"
+				},
+				"diagnoseTroubleDate": {
+					"type": "string",
+					"description": "上次肇事肇祸日期"
+				},
+				"diagnoseType": {
+					"type": "string",
+					"description": "目前诊断类型"
+				},
+				"id": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"orgCode": {
+					"type": "string"
+				},
+				"orgId": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"status": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"updateTime": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"updateUser": {
+					"type": "string"
+				},
+				"userId": {
+					"type": "integer",
+					"format": "int64",
+					"description": "患者id"
+				},
+				"userType": {
+					"type": "integer",
+					"format": "int32",
+					"description": "患者类型"
+				}
+			}
+		},
+		"WatcherDO": {
+			"properties": {
+				"createTime": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"createUser": {
+					"type": "string"
+				},
+				"id": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"orgCode": {
+					"type": "string"
+				},
+				"orgId": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"positionOrg": {
+					"type": "string",
+					"description": "监管人所属机构"
+				},
+				"positionRegion": {
+					"type": "string",
+					"description": "监管人所属区域"
+				},
+				"status": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"updateTime": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"updateUser": {
+					"type": "string"
+				},
+				"userId": {
+					"type": "integer",
+					"format": "int64",
+					"description": "患者id"
+				},
+				"userType": {
+					"type": "integer",
+					"format": "int32",
+					"description": "患者类型"
+				},
+				"watcherJob": {
+					"type": "string",
+					"description": "监管人职务"
+				},
+				"watcherName": {
+					"type": "string",
+					"description": "监管人姓名"
+				},
+				"watcherPosition": {
+					"type": "string",
+					"description": "监管人身份"
+				}
+			}
+		},
+		"PsyChosisBasicVo": {
+			"properties": {
+				"age": {
+					"type": "integer",
+					"format": "int32",
+					"description": "精神病年龄"
+				},
+				"birthday": {
+					"type": "string",
+					"format": "date-time",
+					"description": "精神病出生日期"
+				},
+				"career": {
+					"type": "string",
+					"description": "精神病职业"
+				},
+				"city": {
+					"type": "string",
+					"description": "精神病籍贯-市"
+				},
+				"currentAddress": {
+					"type": "string",
+					"description": "精神病现居地址"
+				},
+				"detailNativeAddress": {
+					"type": "string",
+					"description": "精神病户籍地址"
+				},
+				"district": {
+					"type": "string",
+					"description": "精神病籍贯-县"
+				},
+				"economy": {
+					"type": "string",
+					"description": "家庭经济情况"
+				},
+				"faith": {
+					"type": "string",
+					"description": "精神病宗教信仰"
+				},
+				"gender": {
+					"type": "string",
+					"description": "精神病性别"
+				},
+				"id": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"idCardNo": {
+					"type": "string",
+					"description": "精神病身份证号"
+				},
+				"maritalState": {
+					"type": "string",
+					"description": "精神病婚姻状况"
+				},
+				"mobileNumber": {
+					"type": "string",
+					"description": "精神病手机"
+				},
+				"name": {
+					"type": "string",
+					"description": "精神病姓名"
+				},
+				"nation": {
+					"type": "string",
+					"description": "精神病民族"
+				},
+				"politicalBackground": {
+					"type": "string",
+					"description": "精神病政治面貌"
+				},
+				"province": {
+					"type": "string",
+					"description": "精神病籍贯-省"
+				},
+				"psyFwcs": {
+					"type": "string",
+					"description": "服务场所"
+				},
+				"psyJhgx": {
+					"type": "string",
+					"description": "与监护人关系"
+				},
+				"psyJhrjtdz": {
+					"type": "string",
+					"description": "监护人家庭地址"
+				},
+				"psyJhrlxfs": {
+					"type": "string",
+					"description": "监护人联系方式"
+				},
+				"psyJhrssz": {
+					"type": "string",
+					"description": "监护人身份证号"
+				},
+				"psyJhrxm": {
+					"type": "string",
+					"description": "监护人姓名"
+				},
+				"psySfdb": {
+					"type": "string",
+					"format": "byte",
+					"description": "是否纳入低保"
+				},
+				"psyqtxx": {
+					"type": "string",
+					"description": "其他信息"
+				},
+				"schooling": {
+					"type": "string",
+					"description": "精神病学历"
+				},
+				"telephone": {
+					"type": "string",
+					"description": "精神病固定电话"
+				},
+				"usedName": {
+					"type": "string",
+					"description": "精神病曾用名"
+				}
+			}
+		},
+		"BasicInfoDO": {
+			"properties": {
+				"createTime": {
+					"type": "string",
+					"format": "date-time",
+					"description": "创建时间"
+				},
+				"createUser": {
+					"type": "string",
+					"description": "创建人"
+				},
+				"id": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"orgCode": {
+					"type": "string",
+					"description": "组织代码"
+				},
+				"orgId": {
+					"type": "integer",
+					"format": "int32",
+					"description": "组织"
+				},
+				"psyAge": {
+					"type": "integer",
+					"format": "int32",
+					"description": "患者年龄"
+				},
+				"psyBackground": {
+					"type": "string",
+					"description": "患者学历"
+				},
+				"psyBeforeName": {
+					"type": "string",
+					"description": "患者曾用名"
+				},
+				"psyBirth": {
+					"type": "string",
+					"description": "患者生日"
+				},
+				"psyDangerLevel": {
+					"type": "string",
+					"description": "患者危险等级"
+				},
+				"psyFaith": {
+					"type": "string",
+					"description": "患者信仰"
+				},
+				"psyFamilyIncome": {
+					"type": "string",
+					"description": "患者家庭经济情况"
+				},
+				"psyFocusLevel": {
+					"type": "string",
+					"description": "患者关注等级"
+				},
+				"psyGuardianAddress": {
+					"type": "string",
+					"description": "监护人家庭地址"
+				},
+				"psyGuardianId": {
+					"type": "string",
+					"description": "监护人身份证号"
+				},
+				"psyGuardianName": {
+					"type": "string",
+					"description": "监护人姓名"
+				},
+				"psyGuardianPhone": {
+					"type": "string",
+					"description": "监护人联系方式"
+				},
+				"psyGuardianRelation": {
+					"type": "string",
+					"description": "与监护人关系"
+				},
+				"psyIdCard": {
+					"type": "string",
+					"description": "患者身份证"
+				},
+				"psyIsMinimum": {
+					"type": "integer",
+					"format": "int32",
+					"description": "患者是否纳入低保户1是0否"
+				},
+				"psyJob": {
+					"type": "string",
+					"description": "患者职业"
+				},
+				"psyMarital": {
+					"type": "integer",
+					"format": "int32",
+					"description": "患者婚姻状态1已婚0未婚"
+				},
+				"psyName": {
+					"type": "string",
+					"description": "患者名称"
+				},
+				"psyNation": {
+					"type": "string",
+					"description": "患者民族"
+				},
+				"psyNationAddress": {
+					"type": "string",
+					"description": "患者籍贯地址"
+				},
+				"psyNative": {
+					"type": "string",
+					"description": "患者籍贯"
+				},
+				"psyNowAddress": {
+					"type": "string",
+					"description": "患者现居地址"
+				},
+				"psyOtherContent": {
+					"type": "string",
+					"description": "其他信息"
+				},
+				"psyPhone": {
+					"type": "string",
+					"description": "患者联系方式"
+				},
+				"psyPolitic": {
+					"type": "string",
+					"description": "患者政治面貌"
+				},
+				"psySex": {
+					"type": "integer",
+					"format": "int32",
+					"description": "患者性别1男2女"
+				},
+				"psyWorkspace": {
+					"type": "string",
+					"description": "患者服务场所"
+				},
+				"status": {
+					"type": "integer",
+					"format": "int32",
+					"description": "状态0删除1存在"
+				},
+				"updateTime": {
+					"type": "string",
+					"format": "date-time",
+					"description": "更新时间"
+				},
+				"updateUser": {
+					"type": "string",
+					"description": "更新人"
+				},
+				"userId": {
+					"type": "integer",
+					"format": "int64",
+					"description": "患者id"
+				},
+				"userType": {
+					"type": "integer",
+					"format": "int32",
+					"description": "患者类型"
+				}
+			}
+		},
+		"TroubleDO": {
+			"properties": {
+				"createTime": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"createUser": {
+					"type": "string"
+				},
+				"id": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"orgCode": {
+					"type": "string"
+				},
+				"orgId": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"status": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"troubleAddress": {
+					"type": "string",
+					"description": "事件发生地址"
+				},
+				"troubleDetail": {
+					"type": "string",
+					"description": "事件详情"
+				},
+				"troubleResult": {
+					"type": "string",
+					"description": "事件处理结果"
+				},
+				"updateTime": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"updateUser": {
+					"type": "string"
+				},
+				"userId": {
+					"type": "integer",
+					"format": "int64",
+					"description": "患者id"
+				},
+				"userType": {
+					"type": "integer",
+					"format": "int32",
+					"description": "患者类型"
+				}
+			}
+		},
+		"PsyChosisCountVo": {
+			"properties": {
+				"accuratePicNums": {
+					"type": "integer",
+					"format": "int32",
+					"description": "精准匹配抓拍总数"
+				},
+				"averageWarnNums": {
+					"type": "integer",
+					"format": "int32",
+					"description": "一般预警"
+				},
+				"dangerNums": {
+					"type": "integer",
+					"format": "int32",
+					"description": "危险级别3级以上人数"
+				},
+				"gridNums": {
+					"type": "integer",
+					"format": "int32",
+					"description": "网格员人数总数"
+				},
+				"hasDealNums": {
+					"type": "integer",
+					"format": "int32",
+					"description": "已处理总数"
+				},
+				"month": {
+					"type": "string",
+					"description": "查询月份"
+				},
+				"monthAveCallTime": {
+					"type": "integer",
+					"format": "int32",
+					"description": "月均响应时间"
+				},
+				"monthAveDealTime": {
+					"type": "integer",
+					"format": "int32",
+					"description": "月平均处理时间"
+				},
+				"monthQukCallTime": {
+					"type": "integer",
+					"format": "int32",
+					"description": "月最快响应时间"
+				},
+				"monthQukDealTime": {
+					"type": "integer",
+					"format": "int32",
+					"description": "月最快处理时间"
+				},
+				"noDealNums": {
+					"type": "integer",
+					"format": "int32",
+					"description": "待处理总数"
+				},
+				"normalPicNums": {
+					"type": "integer",
+					"format": "int32",
+					"description": "一般匹配抓拍总数"
+				},
+				"normalWarnNums": {
+					"type": "integer",
+					"format": "int32",
+					"description": "正常预警"
+				},
+				"orgId": {
+					"type": "integer",
+					"format": "int64",
+					"description": "组织id"
+				},
+				"orgName": {
+					"type": "string",
+					"description": "组织名称"
+				},
+				"patientNums": {
+					"type": "integer",
+					"format": "int32",
+					"description": "精神病患者总数"
+				},
+				"queryType": {
+					"type": "integer",
+					"format": "int32",
+					"description": "查询类型"
+				},
+				"vaguePicNums": {
+					"type": "integer",
+					"format": "int32",
+					"description": "模糊匹配抓拍总数"
+				},
+				"validWarnNums": {
+					"type": "integer",
+					"format": "int32",
+					"description": "有效预警总数"
+				},
+				"vitalWarnNums": {
+					"type": "integer",
+					"format": "int32",
+					"description": "重大预警"
+				},
+				"warnNums": {
+					"type": "integer",
+					"format": "int32",
+					"description": "预警总数"
+				},
+				"watchTime": {
+					"type": "integer",
+					"format": "int64",
+					"description": "累积监管时间"
+				},
+				"watcherNums": {
+					"type": "integer",
+					"format": "int32",
+					"description": "监管人员总数"
+				},
+				"watcherOnlineNums": {
+					"type": "integer",
+					"format": "int32",
+					"description": "在管总数"
+				}
+			}
+		}
+	}
+}
