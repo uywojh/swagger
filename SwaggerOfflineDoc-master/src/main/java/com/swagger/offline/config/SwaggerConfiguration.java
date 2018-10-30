@@ -41,15 +41,17 @@ public class SwaggerConfiguration {
      * @Title: 构建API基本信息
      * @methodName: buildApiInfo
      * @Description:
-     * @author: 王延飞
+     * @author: 吴威
      * @date: 2017-12-11  8:44
      */
     private ApiInfo buildApiInfo() {
 
         return new ApiInfoBuilder()
-                .title("用户信息API文档")
+                .title("雪亮工程API文档")
                 .description("这里除了查看接口功能外，还提供了调试测试功能")
-                .contact("王延飞")
+                .license("杭州天阙科技有限公司")
+                .licenseUrl("http://www.hztianque.com/home")
+                .contact("吴威")
                 .version("1.0")
                 .build();
 

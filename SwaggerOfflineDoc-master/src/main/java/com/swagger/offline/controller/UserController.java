@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.*;
  * @Title:
  * @ClassName: UserController.java
  * @Description:
- * @Copyright 2016-2018  - Powered By 研发中心
- * @author: 王延飞
+ * @Copyright 2016-2018  - Powered By 雪亮项目
+ * @author: 吴威
  * @date: 2018-01-22 16:08
  */
 @Controller
 @RequestMapping(value = "/user", produces = MediaType.APPLICATION_JSON_VALUE)
-@Api(value = "用户信息查询", description = "用户基本信息操作API", tags = "UserApi", consumes = MediaType.APPLICATION_JSON_VALUE,
+@Api(value = "用户信息查询", description = "用户基本信息操作API", tags = "用户基本信息操作API", consumes = MediaType.APPLICATION_JSON_VALUE,
         produces = MediaType.APPLICATION_JSON_VALUE)
 public class UserController {
 
