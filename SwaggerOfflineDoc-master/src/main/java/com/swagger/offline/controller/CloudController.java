@@ -1,6 +1,7 @@
 package com.swagger.offline.controller;
 
 
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -12,7 +13,8 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 
-@Api("云图api")
+@Api(value = "云图api", description = "用户基本信息操作API", tags = "云图api", consumes = MediaType.APPLICATION_JSON_VALUE,
+produces = MediaType.APPLICATION_JSON_VALUE)
 @RestController
 @RequestMapping("/api/cloud" )
 public class CloudController {

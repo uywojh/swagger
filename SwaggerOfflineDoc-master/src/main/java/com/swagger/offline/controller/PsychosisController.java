@@ -1,5 +1,6 @@
 package com.swagger.offline.controller;
 
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,7 +31,8 @@ import io.swagger.annotations.ApiResponses;
  * @date 2018年9月25日 下午2:13:01
  */
 
-@Api("精神病api")
+@Api(value = "精神病api", description = "精神病操作API", tags = "精神病操作API", consumes = MediaType.APPLICATION_JSON_VALUE,
+produces = MediaType.APPLICATION_JSON_VALUE)
 @RestController
 @RequestMapping("/api/psychosis/psychosis")
 public class PsychosisController {
