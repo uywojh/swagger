@@ -23,7 +23,7 @@
         <asciidoctor.pdf.output.directory>${project.build.directory}/asciidoc/pdf</asciidoctor.pdf.output.directory>
 
     </properties>
-
+  
     <dependencies>
 
         <dependency>
